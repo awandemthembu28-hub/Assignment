@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - WasteWatch{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <h1>🌍 Keep Your Community Clean</h1>
+    <p>Report waste issues, request pickups, and track your submissions in real-time.</p>
+</section>
+
+<!-- Action Cards - Main Buttons -->
+<section class="action-cards">
+    <a href="/WasteWatch/templates/report.html" class="action-card report">
+        <div class="action-card-icon">⚠️</div>
+        <h3>Report Waste Issue</h3>
+        <p>Report illegal dumping, overflowing bins, or other waste problems in your area.</p>
+    </a>
+    
+    <a href="/WasteWatch/templates/report.html" class="action-card pickup">
+        <div class="action-card-icon">🚛</div>
+        <h3>Request Pickup</h3>
+        <p>Schedule a waste collection for extra waste or missed collections.</p>
+    </a>
+    
+    <a href="/WasteWatch/templates/report.html" class="action-card status">
+        <div class="action-card-icon">📋</div>
+        <h3>Track Status</h3>
+        <p>View the progress of your reports and pickup requests.</p>
+    </a>
+</section>
+
+<!-- Recent Status Section -->
+<section class="status-section">
+    <h2>📊 Recent Activity</h2>
+    
+    <div class="status-list">
+        <div class="status-card pending">
+            <div class="status-info">
+                <h4>Illegal Dumping - Main Road</h4>
+                <p>Reported: 15 Jan 2024 | Ref: WW-2024-001</p>
+            </div>
+            <span class="status-badge pending">Pending</span>
+        </div>
+        
+        <div class="status-card in-progress">
+            <div class="status-info">
+                <h4>Missed Collection - Oak Street</h4>
+                <p>Reported: 14 Jan 2024 | Ref: WW-2024-002</p>
+            </div>
+            <span class="status-badge in-progress">In Progress</span>
+        </div>
+        
+        <div class="status-card resolved">
+            <div class="status-info">
+                <h4>Overflowing Bin - Park Avenue</h4>
+                <p>Reported: 10 Jan 2024 | Ref: WW-2024-003</p>
+            </div>
+            <span class="status-badge resolved">Resolved</span>
+        </div>
+    </div>
+</section>
+{% endblock %}

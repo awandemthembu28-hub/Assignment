@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Waste Management System{% endblock %}</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    
+    <!-- Google Fonts (backup if CSS import fails) -->
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{% url 'home' %}" class="nav-logo">
+                <span class="nav-logo-icon">🗑️</span>
+                <h1>WasteWatch</h1>
+            </a>
+            
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'report' %}">Report Issue</a></li>
+                <li><a href="{% url 'pickup_request' %}">Pickup Request</a></li>
+                <li><a href="{% url 'status' %}">Status</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>🗑️ WasteWatch</h4>
+                <p>Making waste management transparent and efficient for all communities.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'report' %}">Report Issue</a>
+                <a href="{% url 'pickup_request' %}">Request Pickup</a>
+                <a href="{% url 'status' %}">Track Status</a>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>📧 support@wastewatch.co.za</p>
+                <p>📞 0800 123 456</p>
+                <p>📍 Durban, South Africa</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Twitter">🐦</a>
+                    <a href="#" title="Instagram">📷</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2024 WasteWatch. All rights reserved. | Privacy Policy</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
